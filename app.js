@@ -46,7 +46,7 @@ Solve Exercise 3 here:
 
 const game = {
     party: [],
-    gyms: [
+     gyms: [
       { location: "Pewter City", completed: false, difficulty: 1 },
       { location: "Cerulean City", completed: false, difficulty: 2 },
       { location: "Vermilion City", completed: false, difficulty: 3 },
@@ -65,9 +65,37 @@ const game = {
         {level: "easy"},
         {level: "medium"},
         {level: "difficult"}
-    ]
-}
+    ],
+    catchPokemon(pokemonObj) {
+        let pokeballIndex = -1;
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i].name === 'pokeball') {
+                pokeballIndex = i;
+                break;
+            }
+        }
+        if (pokeballIndex !== -1 && this.items[pokeballIndex].quantity > 0) {
+            this.items[pokeballIndex].quantity--;
+            this.party.push(pokemonObj);
+        }
+    },
+    gymStatus: function () {
+        const gymTally = { completed: 0, incomplete: 0 };
 
+        this.gyms.forEach(gym => {
+            if (gym.completed) {
+                gymTally.completed++;
+            } else {
+                gymTally.incomplete++;
+            }
+        });
+
+        console.log(gymTally);
+    },
+    partyCount: function (){
+        return game.party.length;
+    }
+}
 
 /*
 Exercise 4
@@ -229,5 +257,179 @@ Exercise 11
 After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
 
 Solve Exercise 11 here:
+
 */
+
+
+// catchPokemon(pokemonObj) {
+//     this.party.push(pokemonObj);
+
+// const pokemonToCatch = {
+//     number: 11,
+//     name: "Metapod",
+//     type: "bug",
+//     hp: 50,
+//     starter: false
+// };
+
+// game.catchPokemon(pokemonToCatch);
+
+
+/*
+Exercise 12
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+2. How will you find and update the quantity of pokeballs in the `game.items` array?
+
+Tips:
+For this exercise, it's okay to have a negative number of pokeballs.
+After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
+
+Solve Exercise 12 here:
+*/
+
+// catchPokemon(pokemonObj) {
+// this.party.push(pokemonObj);
+// }  
+
+
+
+// catchPokemon(pokemonObj) {
+//     let pokeballIndex = -1;
+//     for (let i = 0; i < this.items.length; i++) {
+//         if (this.items[i].name === 'pokeball') {
+//             pokeballIndex = i;
+//             break;
+//         }
+//     }
+//     if (pokeballIndex !== -1 && this.items[pokeballIndex].quantity > 0) {
+//         this.items[pokeballIndex].quantity--;
+//         this.party.push(pokemonObj);
+
+const pokemonToCatch = {
+    number: 1,
+    name: "Bulbasaur",
+    type: "grass",
+    hp: 45,
+    starter: true
+};
+
+game.catchPokemon(pokemonToCatch);
+console.log("Remaining pokeballs:", game.items[1].quantity);
+
+/*
+Exercise 13
+1. Similar to Exercise 7, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 13 here:
+*/
+
+
+
+// for (const gym of game.gyms) {
+//     if (gym.difficulty < 3) {
+//         gym.completed = true;
+//     }
+// }
+
+// console.log(game.gyms)
+
+
+
+
+game.gyms.forEach(gym => {
+    if (gym.difficulty < 6) {
+        gym.completed = true;
+    }
+});
+
+console.log(game.gyms);
+
+
+/*
+Exercise 14
+1. Create a `gymStatus` method in `game` to tally completed and incomplete gyms.
+2. How will you iterate through the `gyms` array and update the tally? Remember to log the final tally.
+
+This method should:
+  - Not accept any arguments.
+  - Initially create a constant `gymTally`, which is an object that has two 
+    properties: `completed` and `incomplete`, both of which are initially set to 0.
+  - Iterate through the objects in the `game.gyms` array and update the 
+    properties on `gymTally` as follows: 
+    - `completed` should count how many gyms in the array have a value of `true` 
+      for their `completed` property. 
+    - `incomplete` should count how many gyms in the array have a value of 
+      `false` for their `completed` property.
+  - Log the value of `gymTally`.
+  - The method should not return anything.
+
+For example, if five gym objects have a value of `true` on their `completed` property and three gym objects have a value of `false` on their `completed` property, the logged value would be: `{ completed: 5, incomplete: 3 }`.
+
+Solve Exercise 14 here:
+*/
+
+// gymStatus: function () {
+//     const gymTally = { completed: 0, incomplete: 0 };
+
+//     this.gyms.forEach(gym => {
+//         if (gym.completed) {
+//             gymTally.completed++;
+//         } else {
+//             gymTally.incomplete++;
+//         }
+//     });
+
+//     console.log(gymTally);
+// }
+// }
+
+/*
+Exercise 15
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
+
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
+
+Solve Exercise 15 here:
+
+*/
+
+
+// partyCount: function (){
+//     return game.party.length;
+
+game.catchPokemon(pokemonToCatch);
+console.log("Number of Pokémon in party:", game.partyCount());
+
+
+/*
+Exercise 16
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 16 here:
+*/
+
+game.gyms.forEach(gym => {
+    if (gym.difficulty < 8) {
+        gym.completed = true;
+    }
+});
+
+console.log(game.gyms);
+
+
+/*
+Exercise 17
+1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 17 here:
+*/
+
+console.log(game);
 

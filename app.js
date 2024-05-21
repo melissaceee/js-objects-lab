@@ -188,31 +188,9 @@ console.log(game.gyms)
 // */
 
 
-// Iterate through the party array to find the starter Pokémon that needs to evolve
+// uncertain about this solution
 
 
-function starterTrue (pokemon) {
-    const evolutionOccur = {
-        1: { evolvedNumber: 2, evolvedName: 'Ivysaur', hp: 60 },
-        4: { evolvedNumber: 5, evolvedName: 'Charmeleon', hp: 58 },
-        25: { evolvedNumber: 26, evolvedName: 'Raichu', hp: 60 }
-    };
-
-    const evolution = evolutionOccur[pokemon.number];
-    if (evolution && pokemon.starter) {
-        return {
-            number: evolution.evolvedNumber,
-            name: evolution.evolvedName,
-            type: pokemon.type,
-            hp: evolution.hp,
-            starter: false
-        };
-    }
-    return pokemon;
-}
-
-game.party = game.party.map(pokemon => starterTrue(pokemon));
-console.log(game.party)
 
 
 /*

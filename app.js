@@ -134,7 +134,26 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 8 here:
 */
 
-// uncertain best way to approach this question- 
+
+const evolvedPokemon = {
+    1: { number: 2, name: 'Ivysaur', type: 'grass', hp: 60, starter: true },
+    4: { number: 5, name: 'Charmeleon', type: 'fire', hp: 58, starter: true },
+    7: { number: 8, name: 'Wartortle', type: 'water', hp: 59, starter: true },
+    25: { number: 26, name: 'Raichu', type: 'electric', hp: 60, starter: true }
+};
+
+
+function beforeEvolve() {
+    game.party.forEach((pokemon, index) => {
+        if (pokemon.starter) {
+            game.party[index] = evolvedPokemon[pokemon.number];
+        }
+    });
+}
+
+beforeEvolve();
+
+console.log(game.party);
 
 
 /*
@@ -338,6 +357,6 @@ Exercise 17
 Solve Exercise 17 here:
 */
 
-console.log(game)
+// console.log(game)
 
 

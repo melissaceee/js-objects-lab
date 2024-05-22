@@ -134,7 +134,7 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 8 here:
 */
 
-// COME BACK TO  8
+// uncertain best way to approach this question- 
 
 
 /*

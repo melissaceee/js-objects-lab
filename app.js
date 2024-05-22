@@ -2,7 +2,7 @@ const pokemon = require('./data.js')
 
 const game = {
     party: [
-    {number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true}
+    {number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true},
     {number: 25, name: 'Pikachu', type: 'electric', hp: 35, starter: true},
     {number: 7, name: 'Squirtle', type: 'water', hp: 44, starter: true },
     {number: 56, name: 'Mankey', type: 'fighting', hp: 40,starter: false}
@@ -79,4 +79,37 @@ Solve Exercise 5 here:
 // game.party.push(addPokemon1, addPokemon2, addPokemon3);
 // console.log (game.party)
 
+/*
+Exercise 6
+1. Arrange the Pokémon in `game.party` by their HP. The one with the highest HP should come first.
+2. You'll need to use the `.sort()` method. How does the compare function work in sorting numbers?
+
+
+Solve Exercise 6 here:
+*/
+
+// const hp = [45, 35, 44, 40]
+// hp.sort ();
+// console.log (hp);
+
+
+/*
+Exercise 7
+1. Set the `completed` property to true for gyms with a difficulty below 3.
+2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
+
+
+Solve Exercise 7 here:
+*/
+
+
+// for (const gym of game.gyms) {
+//     if (gym.difficulty < 3) {
+//         gym.completed = true;
+//     }
+// }
+// console.log(game.gyms)
+    
+    
+    
 

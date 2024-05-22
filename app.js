@@ -301,13 +301,43 @@ This method should:
 Solve Exercise 15 here:
 */
 
-const pokemonToCatch = {
-    number: 11,
-    name: "Metapod",
-    type: "bug",
-    hp: 50,
-    starter: false
-};
+// const pokemonToCatch = {
+//     number: 11,
+//     name: "Metapod",
+//     type: "bug",
+//     hp: 50,
+//     starter: false
+// };
 
-game.catchPokemon(pokemonToCatch);
-console.log("Num of Pokemon in party", game.partyCount());
+// game.catchPokemon(pokemonToCatch);
+// console.log("Num of Pokemon in party", game.partyCount());
+
+
+/*
+Exercise 16
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 16 here:
+*/
+
+
+// for (const gym of game.gyms) {
+//     if (gym.difficulty < 8) {
+//         gym.completed = true;
+//     }
+// }
+// console.log(game.gyms)
+
+
+/*
+Exercise 17
+1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 17 here:
+*/
+
+console.log(game)
+
+

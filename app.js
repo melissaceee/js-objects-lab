@@ -2,35 +2,38 @@ const pokemon = require('./data.js')
 
 const game = {
     party: [
-    {number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true},
-    {number: 25, name: 'Pikachu', type: 'electric', hp: 35, starter: true},
-    {number: 7, name: 'Squirtle', type: 'water', hp: 44, starter: true },
-    {number: 56, name: 'Mankey', type: 'fighting', hp: 40,starter: false},
-    {number: 97, name: 'Hypno', type: 'psychic', hp: 85, starter: false}
+        {number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true},
+        {number: 25, name: 'Pikachu', type: 'electric', hp: 35, starter: true},
+        {number: 7, name: 'Squirtle', type: 'water', hp: 44, starter: true },
+        {number: 56, name: 'Mankey', type: 'fighting', hp: 40,starter: false},
+        {number: 97, name: 'Hypno', type: 'psychic', hp: 85, starter: false}
     ],
     gyms: [
-      { location: "Pewter City", completed: false, difficulty: 1 },
-      { location: "Cerulean City", completed: false, difficulty: 2 },
-      { location: "Vermilion City", completed: false, difficulty: 3 },
-      { location: "Celadon City", completed: false, difficulty: 4 },
-      { location: "Fuchsia City", completed: false, difficulty: 5 },
-      { location: "Saffron City", completed: false, difficulty: 6 },
-      { location: "Cinnabar Island", completed: false, difficulty: 7 },
-      { location: "Viridian City", completed: false, difficulty: 8 },
+        { location: "Pewter City", completed: false, difficulty: 1 },
+        { location: "Cerulean City", completed: false, difficulty: 2 },
+        { location: "Vermilion City", completed: false, difficulty: 3 },
+        { location: "Celadon City", completed: false, difficulty: 4 },
+        { location: "Fuchsia City", completed: false, difficulty: 5 },
+        { location: "Saffron City", completed: false, difficulty: 6 },
+        { location: "Cinnabar Island", completed: false, difficulty: 7 },
+        { location: "Viridian City", completed: false, difficulty: 8 },
     ],
     items: [
-      { name: "potion", quantity: 4 },
-      { name: "pokeball", quantity: 8 },
-      { name: "rare candy", quantity: 99 },
+        { name: "potion", quantity: 4 },
+        { name: "pokeball", quantity: 8 },
+        { name: "rare candy", quantity: 99 },
     ],
     difficulty: [
         {level: "easy"},
         {level: "medium"},
         {level: "difficult"}
     ],
-    catchPokemon: function(pokemonObj){
+    catchPokemon: function(pokemonObj) {
         this.party.push(pokemonObj);
-    }   
+    },
+    partyCount: function () {
+        return this.party.length;
+    }
 };
 
 
@@ -230,3 +233,81 @@ Solve Exercise 12 here:
 
 // console.log(game.items);
 
+/*
+Exercise 13
+1. Similar to Exercise 7, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 13 here:
+*/
+
+// for (const gym of game.gyms) {
+//     if (gym.difficulty < 6) {
+//         gym.completed = true;
+//     }
+// }
+// console.log(game.gyms)
+
+
+// /*
+// Exercise 14
+// 1. Create a `gymStatus` method in `game` to tally completed and incomplete gyms.
+// 2. How will you iterate through the `gyms` array and update the tally? Remember to log the final tally.
+
+// This method should:
+//   - Not accept any arguments.
+//   - Initially create a constant `gymTally`, which is an object that has two 
+//     properties: `completed` and `incomplete`, both of which are initially set to 0.
+//   - Iterate through the objects in the `game.gyms` array and update the 
+//     properties on `gymTally` as follows: 
+//     - `completed` should count how many gyms in the array have a value of `true` 
+//       for their `completed` property. 
+//     - `incomplete` should count how many gyms in the array have a value of 
+//       `false` for their `completed` property.
+//   - Log the value of `gymTally`.
+//   - The method should not return anything.
+
+// For example, if five gym objects have a value of `true` on their `completed` property and three gym objects have a value of `false` on their `completed` property, the logged value would be: `{ completed: 5, incomplete: 3 }`.
+
+// Solve Exercise 14 here:
+// */
+
+// gymStatus: function () {
+//     const gymTally = { completed: 0, incomplete: 0 };
+
+//     this.gyms.forEach(gym => {
+//         if (gym.completed) {
+//             gymTally.completed++;
+//         } else {
+//             gymTally.incomplete++;
+//         }
+//     });
+
+//     console.log(gymTally);
+// }
+// }
+
+
+
+/*
+Exercise 15
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
+
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
+
+Solve Exercise 15 here:
+*/
+
+const pokemonToCatch = {
+    number: 11,
+    name: "Metapod",
+    type: "bug",
+    hp: 50,
+    starter: false
+};
+
+game.catchPokemon(pokemonToCatch);
+console.log("Num of Pokemon in party", game.partyCount());
